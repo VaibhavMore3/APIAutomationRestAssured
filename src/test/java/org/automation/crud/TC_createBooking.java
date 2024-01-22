@@ -1,5 +1,7 @@
 package org.automation.crud;
 
-public class TC_createBooking {
+import org.automation.base.baseTest;
+
+public class TC_createBooking extends baseTest {
 
 }
