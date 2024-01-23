@@ -3,7 +3,7 @@ package org.automation.misc;
 import io.restassured.RestAssured;
 import org.testng.annotations.Test;
 
-public class testFile {
+public class TestFile {
 
     @Test
     public static void request(){

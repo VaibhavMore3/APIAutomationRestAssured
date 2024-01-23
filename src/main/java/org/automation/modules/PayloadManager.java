@@ -2,10 +2,11 @@ package org.automation.modules;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.automation.payloads.Booking;
-import org.automation.payloads.Bookingdates;
+import org.automation.payloads.request.Booking;
+import org.automation.payloads.request.Bookingdates;
+import org.automation.payloads.response.BookingResponse;
 
-public class payloadManager {
+public class PayloadManager {
 
     ObjectMapper objectMapper;
 
@@ -27,5 +28,12 @@ public class payloadManager {
 
         String payload = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(booking);
         return payload;
+    }
+
+    public BookingResponse JsonToObject(String jsonString) throws JsonProcessingException {
+         objectMapper = new ObjectMapper();
+        BookingResponse bookingResponse = objectMapper.readValue(jsonString,BookingResponse.class);
+        return bookingResponse;
+
     }
 }

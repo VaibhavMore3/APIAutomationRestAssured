@@ -3,7 +3,7 @@ package org.automation.Actions;
 import io.restassured.response.Response;
 import static org.testng.Assert.assertEquals;
 
-public class assertActions {
+public class AssertActions {
 
     public static void verifyStatusCode(Response response){
         assertEquals(String.valueOf(response.getStatusCode()).startsWith("20"), true,"value of status code is "+response.getStatusCode());

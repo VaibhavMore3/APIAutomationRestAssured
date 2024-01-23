@@ -1,4 +1,4 @@
-package  org.automation.payloads;
+package org.automation.payloads.request;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;

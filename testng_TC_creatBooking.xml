@@ -3,7 +3,7 @@
 <suite name="All Test Suite">
     <test verbose="3" preserve-order="true" name="APIAutomationRestAssured">
         <classes>
-            <class name="org.automation.misc.TestFile">
+            <class name="org.automation.crud.TC_createBooking">
 
             </class>
         </classes>
