@@ -6,7 +6,9 @@ public class APIConstants {
 
     public static String baseURL = "https://restful-booker.herokuapp.com";
 
-    public static String createBooking = "/booking";
+    public static String authPath ="/auth";
+
+    public static String basePath = "/booking";
 
     public static String updateBooking = "/booking";
 }

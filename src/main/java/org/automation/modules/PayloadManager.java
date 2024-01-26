@@ -2,6 +2,7 @@ package org.automation.modules;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.automation.payloads.request.Auth;
 import org.automation.payloads.request.Booking;
 import org.automation.payloads.request.Bookingdates;
 import org.automation.payloads.response.BookingResponse;
@@ -31,9 +32,18 @@ public class PayloadManager {
     }
 
     public BookingResponse JsonToObject(String jsonString) throws JsonProcessingException {
-         objectMapper = new ObjectMapper();
+        objectMapper = new ObjectMapper();
         BookingResponse bookingResponse = objectMapper.readValue(jsonString,BookingResponse.class);
         return bookingResponse;
 
     }
+
+    public String setToken() throws JsonProcessingException {
+        objectMapper = new ObjectMapper();
+        Auth auth = new Auth();
+        auth.setUsername("admin");
+        auth.setPassword("password123");
+        return objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(auth);
+    }
+
 }

@@ -25,7 +25,7 @@ public class TC_createBooking extends BaseTest {
 
     public void testCreateBooking_1() throws JsonProcessingException {
 
-        requestSpecification.baseUri(APIConstants.baseURL+APIConstants.createBooking);
+        requestSpecification.baseUri(APIConstants.baseURL+APIConstants.authPath);
 
         response = requestSpecification.when().body(payloadManager.createPayload()).post();
 
