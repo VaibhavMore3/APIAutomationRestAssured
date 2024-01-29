@@ -1,16 +1,16 @@
 package org.automation.crud;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import org.automation.base.BaseTest;
 import org.automation.endpoints.APIConstants;
 import org.automation.payloads.request.Booking;
 import org.automation.payloads.response.BookingResponse;
-import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
-import org.automation.base.BaseTest.*;
-import static org.assertj.core.api.Assertions.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 
@@ -20,12 +20,14 @@ public class TC_Integration extends BaseTest {
     String bookingID;
     String bookingIDPOJO;
 
+//    private static final Logger log = LogManager.getLogger(TC_Integration.class);
+
     @Test
     public void testCreateBooking() throws JsonProcessingException {
         token = getToken();
         assertThat(token).isNotNull().isNotEmpty();
 
-        requestSpecification.baseUri(APIConstants.baseURL+APIConstants.basePath);
+        requestSpecification.baseUri(APIConstants.baseURL+APIConstants.CREATE_BOOKING);
         response = requestSpecification.when().body(payloadManager.createPayload()).post();
         validatableResponse = response.then().log().all();
         jsonPath = JsonPath.from(response.asString());

@@ -1,16 +1,27 @@
 package org.automation.endpoints;
 
+import org.automation.utils.PropertiesReader;
+
 public class APIConstants {
 
 //    public static String baseURL = FillowUtils.fetchDataFromXLSX("Sheet1", "BaseURL","Value");
 
-    public static String baseURL = "https://restful-booker.herokuapp.com";
+    public static String baseURL;
+    public static String authPath;
+    public static String CREATE_BOOKING;
+    public static String updateBooking;
 
-    public static String authPath ="/auth";
+    static {
+        try {
+            baseURL = PropertiesReader.readKey("baseURL");
+            authPath = PropertiesReader.readKey("authPath");
+            CREATE_BOOKING = PropertiesReader.readKey("CREATE_BOOKING");
+            updateBooking = PropertiesReader.readKey("updateBooking");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-    public static String basePath = "/booking";
-
-    public static String updateBooking = "/booking";
 }
 
 
